@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class ValidatorService {
     public static final int TAMANHO_CNPJ_SEM_DV = 12;
-    private static final String REGEX_CARACTERES_FORMATACAO = "[./-]";
+    private static final String REGEX_CARACTERES_FORMATACAO = "[./-]"; // Moved to Formmater.java
     private static final String REGEX_FORMACAO_BASE_CNPJ = "[A-Z\\d]{12}";
     private static final String REGEX_FORMACAO_DV = "[\\d]{2}";
     private static final String REGEX_VALOR_ZERADO = "^0+$";
@@ -48,7 +48,7 @@ public class ValidatorService {
 
     public static String removeCaracteresFormatacao(String cnpj) {
         return cnpj.trim().replaceAll(REGEX_CARACTERES_FORMATACAO, "");
-    }
+    } // Moved to Formatter.java
 
     private static boolean isCnpjFormacaoValidaSemDV(String cnpj) {
         return cnpj.matches(REGEX_FORMACAO_BASE_CNPJ) &&
