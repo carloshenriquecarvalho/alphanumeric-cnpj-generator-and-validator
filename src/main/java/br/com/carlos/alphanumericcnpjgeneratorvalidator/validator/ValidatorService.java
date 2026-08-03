@@ -2,7 +2,6 @@ package br.com.carlos.alphanumericcnpjgeneratorvalidator.validator;
 
 import org.springframework.stereotype.Service;
 
-
 @Service
 public class ValidatorService {
     public static final int TAMANHO_CNPJ_SEM_DV = 12;
@@ -59,5 +58,4 @@ public class ValidatorService {
         return cnpj.matches(REGEX_FORMACAO_BASE_CNPJ.concat(REGEX_FORMACAO_DV)) &&
                 !cnpj.matches(REGEX_VALOR_ZERADO);
     }
-
 }
