@@ -24,5 +24,8 @@ jobs:
           java-version: '21'
           cache: maven
 
+      - name: Grant execute permission
+        run: chmod +x mvnw
+
       - name: Build project
         run: ./mvnw clean verify
