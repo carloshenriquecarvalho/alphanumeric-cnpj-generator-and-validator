@@ -1,7 +1,59 @@
-# Alphanumeric CNPJ generator and validator
+# Alphanumeric CNPJ Generator and Validator
 
-This project was motivated by the new regulation for Brazilian CNPJs, that now can accept letters. This move was done due the limit is for CNPJ generation is almost in full.
+A web application for generating and validating Brazilian **alphanumeric CNPJs**, introduced by the Receita Federal in November 2024.
 
-The project relies on source code provided by RF on November 05, 2024 at 09h05 AM. You can check at: [Cálculo do DV do CNPJ Alfanumérico](https://www.gov.br/receitafederal/pt-br/centrais-de-conteudo/publicacoes/documentos-tecnicos/cnpj).
+This project was created to study and implement the new CNPJ specification, including the updated check digit (DV) algorithm and the generation of valid alphanumeric CNPJs.
 
-To see the project in action, you can look at [Gera Aí](https://alphanumeric-cnpj-generator-and-validator.onrender.com/) website.
+## Live Demo
+
+🌐 https://alphanumeric-cnpj-generator-and-validator.onrender.com/
+
+## Features
+
+- Generate valid alphanumeric CNPJs
+- Validate alphanumeric CNPJs
+- Format generated CNPJs automatically
+- Copy generated CNPJs to the clipboard
+- Responsive interface for desktop and mobile devices
+
+## Technologies
+
+- Java 21
+- Spring Boot
+- Thymeleaf
+- Maven
+- Docker
+- GitHub Actions (Continuous Integration)
+- Render
+
+## Motivation
+
+The traditional numeric CNPJ format was approaching its allocation limits. To expand the available namespace while preserving the existing 14-character structure, the Receita Federal introduced the new alphanumeric format.
+
+This project implements the official validation algorithm published by the Receita Federal and provides a practical way to generate and validate the new identifiers.
+
+## Official Reference
+
+This implementation is based on the official documentation published by the Receita Federal on **November 5, 2024**.
+
+[Cálculo do DV do CNPJ Alfanumérico](Insert the official document link here.)](https://www.gov.br/receitafederal/pt-br/centrais-de-conteudo/publicacoes/documentos-tecnicos/cnpj)
+
+## Running Locally
+
+```bash
+git clone https://github.com/carloshenriquecarvalho/alphanumeric-cnpj-generator-and-validator.git
+
+cd alphanumeric-cnpj-generator-and-validator
+
+./mvnw spring-boot:run
+```
+
+Then open:
+
+```
+http://localhost:8080
+```
+
+## License
+
+This project is intended for educational purposes.
