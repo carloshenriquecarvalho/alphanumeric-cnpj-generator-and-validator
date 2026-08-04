@@ -1,7 +1,7 @@
 package br.com.carlos.alphanumericcnpjgeneratorvalidator.controller;
 
 import br.com.carlos.alphanumericcnpjgeneratorvalidator.dto.CnpjDTO;
-import br.com.carlos.alphanumericcnpjgeneratorvalidator.dto.CnpjFormatter;
+import br.com.carlos.alphanumericcnpjgeneratorvalidator.formatter.CnpjFormatter;
 import br.com.carlos.alphanumericcnpjgeneratorvalidator.service.GeneratorService;
 import br.com.carlos.alphanumericcnpjgeneratorvalidator.service.ValidatorService;
 import org.springframework.http.ResponseEntity;
@@ -10,9 +10,15 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/cnpj/api/v1")
 public class CnpjController {
+    private final GeneratorService generatorService;
+    private final ValidatorService validatorService;
 
-    public CnpjController(ValidatorService validatorService) {
+    public CnpjController(
+            GeneratorService generatorService,
+            ValidatorService validatorService) {
 
+        this.generatorService = generatorService;
+        this.validatorService = validatorService;
     }
     @PostMapping("/validate")
     public ResponseEntity<Boolean> validateCnpj(@RequestBody CnpjDTO request){

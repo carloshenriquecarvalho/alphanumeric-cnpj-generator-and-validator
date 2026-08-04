@@ -1,4 +1,4 @@
-package br.com.carlos.alphanumericcnpjgeneratorvalidator.dto;
+package br.com.carlos.alphanumericcnpjgeneratorvalidator.formatter;
 
 public class CnpjFormatter {
     static String cnpj;
