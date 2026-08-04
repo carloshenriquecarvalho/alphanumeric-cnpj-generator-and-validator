@@ -1,4 +1,9 @@
-# Alphanumeric CNPJ Generator and Validator
+# Gera Aí – Alphanumeric CNPJ Generator & Validator
+
+![Java](https://img.shields.io/badge/Java-21-orange)
+![Spring Boot](https://img.shields.io/badge/Spring_Boot-3.x-6DB33F)
+![Build](https://github.com/carloshenriquecarvalho/alphanumeric-cnpj-generator-and-validator/actions/workflows/ci.yml/badge.svg)
+![License](https://img.shields.io/badge/License-MIT-blue)
 
 A web application for generating and validating Brazilian **alphanumeric CNPJs**, introduced by the Receita Federal in November 2024.
 
