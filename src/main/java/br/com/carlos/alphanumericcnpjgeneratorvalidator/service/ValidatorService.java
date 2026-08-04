@@ -1,4 +1,4 @@
-package br.com.carlos.alphanumericcnpjgeneratorvalidator.validator;
+package br.com.carlos.alphanumericcnpjgeneratorvalidator.service;
 
 import org.springframework.stereotype.Service;
 

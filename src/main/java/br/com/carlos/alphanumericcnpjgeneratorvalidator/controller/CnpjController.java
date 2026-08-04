@@ -1,12 +1,11 @@
 package br.com.carlos.alphanumericcnpjgeneratorvalidator.controller;
 
 import br.com.carlos.alphanumericcnpjgeneratorvalidator.dto.CnpjDTO;
-import br.com.carlos.alphanumericcnpjgeneratorvalidator.validator.ValidatorService;
+import br.com.carlos.alphanumericcnpjgeneratorvalidator.dto.CnpjFormatter;
+import br.com.carlos.alphanumericcnpjgeneratorvalidator.service.GeneratorService;
+import br.com.carlos.alphanumericcnpjgeneratorvalidator.service.ValidatorService;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/cnpj/api/v1")
@@ -16,10 +15,22 @@ public class CnpjController {
 
     }
     @PostMapping("/validate")
-    public ResponseEntity<String> validateCnpj(@RequestBody CnpjDTO request){
-        Boolean isCnpjValid = ValidatorService.isValid(request.cnpj());
+    public ResponseEntity<Boolean> validateCnpj(@RequestBody CnpjDTO request){
+        String completoCnpj = String.format("%s" + "%s",request.cnpj(), ValidatorService.calculaDV(request.cnpj()));
+        boolean isCnpjValid = ValidatorService.isValid(completoCnpj);
 
-        return ResponseEntity.ok(String.format("O cnpj é %s", isCnpjValid ? "válido" : "inválido"));
+        return ResponseEntity.ok(isCnpjValid);
+    }
+
+    @GetMapping("/generate")
+    public ResponseEntity<CnpjDTO> generateCnpj(){
+
+        String generatedValue = GeneratorService.generate();
+
+        String completeCnpj = String.format("%s" + "%s",generatedValue, ValidatorService.calculaDV(generatedValue));
+        System.out.println(new CnpjFormatter(completeCnpj));
+
+        return ResponseEntity.ok(new CnpjDTO(CnpjFormatter.getCnpj()));
     }
 
 }
