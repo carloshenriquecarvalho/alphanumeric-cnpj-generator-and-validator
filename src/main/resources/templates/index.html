@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Gerador de CNPJ</title>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" th:href="@{/images/Gera.png}" type="image/x-icon">
     <link rel="stylesheet" th:href="@{/css/style.css}">
     <script th:src="@{/js/script.js}"></script>
@@ -19,7 +19,6 @@
     </header>
 
     <section class="card">
-        <h2>Gerar CNPJ</h2>
         <form th:action="@{/generate}" method="get">
             <button class="primary-button">
                 Gerar novo CNPJ

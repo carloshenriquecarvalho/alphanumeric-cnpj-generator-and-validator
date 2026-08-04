@@ -71,7 +71,7 @@ header p{
     border:2px dashed #00bf63;
     border-radius:10px;
     text-align:center;
-    font-size:30px;
+    font-size:clamp(20px, 4vw, 30px);
     font-weight:bold;
     letter-spacing:2px;
 }
@@ -138,4 +138,66 @@ footer{
 
 .copy-button:active{
     transform:scale(.97);
+}
+
+@media (max-width: 768px) {
+
+    .container {
+        width: 95%;
+        margin: 20px auto;
+    }
+
+    header {
+        text-align: center;
+    }
+
+    .logo-banner {
+        width: 90px;
+        margin-bottom: 15px;
+    }
+
+    header h1 {
+        font-size: 28px;
+    }
+
+    header p {
+        font-size: 15px;
+    }
+
+    .card {
+        padding: 20px;
+    }
+
+    .generated-box {
+        font-size: 22px;
+        padding: 20px;
+        word-break: break-word;
+    }
+
+    .validate-form {
+        flex-direction: column;
+    }
+
+    .validate-form input {
+        width: 100%;
+    }
+
+    .validate-form button {
+        width: 100%;
+    }
+
+    .primary-button {
+        width: 100%;
+    }
+
+    .copy-button {
+        position: static;
+        margin-top: 15px;
+        width: 100%;
+    }
+
+    footer {
+        font-size: 13px;
+        text-align: center;
+    }
 }
