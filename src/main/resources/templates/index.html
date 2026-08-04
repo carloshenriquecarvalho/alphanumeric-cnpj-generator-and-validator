@@ -1,18 +1,81 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Alphanumeric CNPJ Generator</title>
+    <title>Gerador de CNPJ</title>
+
+    <link rel="shortcut icon" th:href="@{/images/Gera.png}" type="image/x-icon">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <script th:src="@{/js/script.js}"></script>
 </head>
 <body>
-    <h1>Hello, Thymleaf!!</h1>
-    <form th:action="@{/generate}" method="get">
-        <button type="submit">Generate CNPJ</button>
-    </form>
+<div class="container">
+    <header>
+        <img th:src="@{/images/Gera.png}" class="logo-banner" alt="Logo">
+        <h1>Gerador e Validador de CNPJ</h1>
+        <p>
+            Gere e valide CNPJs alfanuméricos conforme a nova regulamentação.
+        </p>
+    </header>
 
-    <h2 th:if="${cnpj != null}">
-        Generated:
-        <span th:text="${cnpj}"></span>
-    </h2>
+    <section class="card">
+        <h2>Gerar CNPJ</h2>
+        <form th:action="@{/generate}" method="get">
+            <button class="primary-button">
+                Gerar novo CNPJ
+            </button>
+        </form>
+
+        <div class="generated-box">
+            <span id="generated-cnpj"
+                  th:if="${cnpj != null}"
+                  th:text="${cnpj}">
+            </span>
+            <button th:if="${not #strings.isEmpty(cnpj)}"
+                    type="button"
+                    class="copy-button"
+                    onclick="copyCnpj()">
+                Copiar!
+            </button>
+
+            <span th:unless="${cnpj != null}">
+                Clique em "Gerar novo CNPJ"
+            </span>
+        </div>
+    </section>
+
+    <section class="card">
+        <h2>Validar CNPJ</h2>
+        <form class="validate-form"
+              th:action="@{/validate}"
+              method="post">
+            <label>
+                <input
+                        type="text"
+                        name="cnpj"
+                        placeholder="XX.XXX.XXX/XXXX-XX">
+            </label>
+            <button class="primary-button">
+                Validar
+            </button>
+        </form>
+
+        <div th:if="${valid != null}">
+            <p class="success"
+               th:if="${valid}">
+                CNPJ válido
+            </p>
+            <p class="error"
+               th:unless="${valid}">
+                CNPJ inválido
+            </p>
+        </div>
+    </section>
+
+    <footer>
+        Os CNPJs gerados são fictícios e destinados apenas para testes.
+    </footer>
+
+</div>
 </body>
 </html>

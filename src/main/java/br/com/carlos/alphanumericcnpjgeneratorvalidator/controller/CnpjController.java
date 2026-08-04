@@ -34,9 +34,9 @@ public class CnpjController {
         String generatedValue = GeneratorService.generate();
 
         String completeCnpj = String.format("%s" + "%s",generatedValue, ValidatorService.calculaDV(generatedValue));
-        System.out.println(new CnpjFormatter(completeCnpj));
+        String formattedCnpj = String.format(new CnpjFormatter(completeCnpj).getCnpj());
 
-        return ResponseEntity.ok(new CnpjDTO(CnpjFormatter.getCnpj()));
+        return ResponseEntity.ok(new CnpjDTO(formattedCnpj));
     }
 
 }
