@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://alphanumeric-cnpj-generator-validator.onrender.com/
